@@ -21,8 +21,23 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  @override
+  void initState() {
+    // Remove `loading` div
+    final loader = document.getElementsByClassName('loading');
+    if (loader.isNotEmpty) {
+      loader.first.remove();
+    }
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
